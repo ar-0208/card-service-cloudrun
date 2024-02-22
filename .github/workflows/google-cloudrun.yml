@@ -86,9 +86,7 @@ jobs:
           workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
           service_account:  ${{ secrets.WIF_SERVICE_ACCOUNT }}
       
-      - name: Get secrets from GSM
-        id: secret
-        uses: 'google-github-actions/get-secretmanager-secrets@v2'
+
 
         
       # NOTE: Alternative option - authentication via credentials json

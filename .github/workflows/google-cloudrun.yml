@@ -66,8 +66,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+#      - name: Checkout
+#        uses: actions/checkout@v3
 
 #     - name: Set up JDK 17
 #        uses: actions/setup-java@v3
@@ -78,24 +78,24 @@ jobs:
 #      - name: Build with Gradle
 #        run: ./gradlew clean build -x test
 
-      - name: Google Auth
-        id: auth
+#      - name: Google Auth
+      - id: 'auth'
         uses: 'google-github-actions/auth@v1.1.1'
         with:
           token_format: 'access_token'
           workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
           service_account:  ${{ secrets.WIF_SERVICE_ACCOUNT }}
       
-      - name: Get secrets from GSM
-        id: 'secret'
+#      - name: Get secrets from GSM
+      - id: 'secret'
         uses: 'google-github-actions/get-secretmanager-secrets@v2'
         with:
           secrets: |-
-            token: 166948072067/JF_ACCESS_TOKEN
+            token: atlantean-petal-309613/JF_ACCESS_TOKEN
 
       - id: "publish"
         run: |
-         echo: "${{ steps.secrets.output.token}}"
+          echo: "${{ steps.secrets.output.token}}"
             
 
 

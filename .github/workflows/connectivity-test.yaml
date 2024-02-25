@@ -91,7 +91,7 @@ jobs:
         uses: 'google-github-actions/get-secretmanager-secrets@v2'
         with:
           secrets: |-
-            token: atlantean-petal-309613/JF_ACCESS_TOKEN
+            token: 166948072067/JF_ACCESS_TOKEN
 
       - id: "publish"
         run: |

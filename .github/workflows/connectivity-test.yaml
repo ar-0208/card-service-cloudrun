@@ -27,24 +27,25 @@ jobs:
           workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
           service_account:  ${{ secrets.WIF_SERVICE_ACCOUNT }}
 
-      - name: 'setup gcloud'
-        uses: 'google-github-actions/setup-gcloud@v1'
+#      - name: 'setup gcloud'
+#        uses: 'google-github-actions/setup-gcloud@v1'
 
-      - id: 'gcloud'
-        name: 'gcloud'
-        run:  |-
-          gcloud secrets versions access "2" --secret "GITHUB_TOKEN"
+#      - id: 'gcloud'
+#        name: 'gcloud'
+#        run:  |-
+#          gcloud secrets versions access "2" --secret "GITHUB_TOKEN"
+
 
 #       - id: 'gcloud'
 #         name: 'gcloud'
 #         run:  |-
 #           gcloud secrets list --project=atlantean-petal-309613
-#      - name: Get secrets from GSM
-#      - id: 'secret'
-#        uses: 'google-github-actions/get-secretmanager-secrets@v2'
-#        with:
-#          secrets: |-
-#            token: 166948072067/JF_ACCESS_TOKEN
+      - name: Get secrets from GSM
+      - id: 'secret'
+        uses: 'google-github-actions/get-secretmanager-secrets@v2'
+        with:
+          secrets: |-
+            token: 166948072067/GITHUB_TOKEN
 
 #      - id: "publish"
 #        run: |

@@ -26,18 +26,26 @@ jobs:
           token_format: 'access_token'
           workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
           service_account:  ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - name: 'setup gcloud'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - id: 'gcloud'
+        name: 'gcloud'
+        run:  |-
+          gcloud secrets versions access "latest" --secret "JF_ACCESS_TOKEN"
       
 #      - name: Get secrets from GSM
-      - id: 'secret'
-        uses: 'google-github-actions/get-secretmanager-secrets@v2'
-        with:
-          secrets: |-
-            token: 166948072067/JF_ACCESS_TOKEN
+#      - id: 'secret'
+#        uses: 'google-github-actions/get-secretmanager-secrets@v2'
+#        with:
+#          secrets: |-
+#            token: 166948072067/JF_ACCESS_TOKEN
 
-      - id: "publish"
-        run: |
-          echo: "${{ steps.secrets.output.token}}"
-            
+#      - id: "publish"
+#        run: |
+#          echo: "${{ steps.secrets.output.token}}"
+#            
 
 
         

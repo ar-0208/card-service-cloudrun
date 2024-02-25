@@ -33,8 +33,12 @@ jobs:
       - id: 'gcloud'
         name: 'gcloud'
         run:  |-
-          gcloud secrets list --project=atlantean-petal-309613
-      
+          gcloud secrets versions access "1" --secret "JF_ACCESS_TOKEN"
+
+#       - id: 'gcloud'
+#         name: 'gcloud'
+#         run:  |-
+#           gcloud secrets list --project=atlantean-petal-309613
 #      - name: Get secrets from GSM
 #      - id: 'secret'
 #        uses: 'google-github-actions/get-secretmanager-secrets@v2'

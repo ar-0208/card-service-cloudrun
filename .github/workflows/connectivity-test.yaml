@@ -32,7 +32,7 @@ jobs:
         uses: 'google-github-actions/get-secretmanager-secrets@v2'
         with:
           secrets: |-
-            token: 166948072067/GITHUB_TOKEN
+            token: atlantean-petal-309613/GITHUB_TOKEN
 
 #      - name: 'setup gcloud'
 #        uses: 'google-github-actions/setup-gcloud@v1'

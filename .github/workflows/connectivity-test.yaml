@@ -34,6 +34,27 @@ jobs:
           secrets: |-
             token:atlantean-petal-309613/GITHUB_TOKEN
 
+#      - name: Get secrets from GSM
+      - id: 'secret_jfrog'
+        uses: 'google-github-actions/get-secretmanager-secrets@v2'
+        with:
+          secrets: |-
+            token_access:atlantean-petal-309613/JF_ACCESS_TOKEN
+            token_url:atlantean-petal-309613/JF_URL
+      
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
+      - run: | 
+          echo "FJ_ACCESS_TOKEN=${{steps.secret_jfrog.outputs.token_access}}" >> $GITHUB_ENV
+          echo "FJ_URL=${{steps.secret_jfrog.outputs.token_url}}" >> $GITHUB_ENV
+          cat $GITHUB_ENV
+          
+
+     
+            
 #      - name: 'setup gcloud'
 #        uses: 'google-github-actions/setup-gcloud@v1'
 

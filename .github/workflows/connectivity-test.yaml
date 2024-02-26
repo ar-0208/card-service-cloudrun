@@ -49,10 +49,10 @@ jobs:
 #           gcloud secrets list --project=atlantean-petal-309613
 
 
-#      - id: "publish"
-#        run: |
-#          echo: "${{ steps.secrets.output.token}}"
-#            
+      - id: "publish"
+        run: |
+          echo: "${{ steps.secret.output.token}}"
+            
 
 
         

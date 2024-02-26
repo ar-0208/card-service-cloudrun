@@ -43,15 +43,21 @@ jobs:
             token_access:atlantean-petal-309613/JF_ACCESS_TOKEN
             token_url:atlantean-petal-309613/JF_URL
       
-
-      - uses: actions/setup-java@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '21'
-      - run: | 
-          echo "FJ_ACCESS_TOKEN=${{steps.secret_jfrog.outputs.token_access}}" >> $GITHUB_ENV
-          echo "FJ_URL=${{steps.secret_jfrog.outputs.token_url}}" >> $GITHUB_ENV
-          cat $GITHUB_ENV
+          java-version: '17'
+          distribution: 'temurin'
+
+
+#      - uses: actions/setup-java@v4
+#        with:
+#          distribution: 'temurin' # See 'Supported distributions' for available options
+#          java-version: '21'
+#      - run: | 
+#          echo "FJ_ACCESS_TOKEN=${{steps.secret_jfrog.outputs.token_access}}" >> $GITHUB_ENV
+#          echo "FJ_URL=${{steps.secret_jfrog.outputs.token_url}}" >> $GITHUB_ENV
+#          cat $GITHUB_ENV
           
 #       - name: repo checkout
 #         uses: actions/checkout@v3

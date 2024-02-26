@@ -53,10 +53,10 @@ jobs:
           echo "FJ_URL=${{steps.secret_jfrog.outputs.token_url}}" >> $GITHUB_ENV
           cat $GITHUB_ENV
           
-      - name: repo checkout
-        uses: actions/checkout@v3
-        with:
-          github_token_access: atlantean-petal-309613/GITHUB_TOKEN_PAT
+#       - name: repo checkout
+#         uses: actions/checkout@v3
+#         with:
+#           github_token_access: atlantean-petal-309613/GITHUB_TOKEN_PAT
 
       - name: Build with Gradle
         run: ./gradlew clean build -x test

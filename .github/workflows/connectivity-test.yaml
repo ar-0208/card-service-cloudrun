@@ -51,7 +51,7 @@ jobs:
 
       - id: "publish"
         run: |
-          echo: "${{ steps.secret.output.token}}"
+          echo "${{ steps.secret.outputs.token }}"
             
 
 

@@ -65,7 +65,9 @@ jobs:
 #           github_token_access: atlantean-petal-309613/GITHUB_TOKEN_PAT
 
       - name: Build with Gradle
-        run: ./gradlew clean build -x test
+        run: |-
+          gradle build --refresh-dependencies --info
+          ./gradlew clean build -x test
 
       - name: Upload Jar
         uses: actions/upload-artifact@v2

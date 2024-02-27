@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://gcpengineer.jfrog.io:8082/artifactory/jcenter"
+		
+        }
+    }
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.7.2'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
@@ -15,14 +24,6 @@ configurations {
 	}
 }
 https://gcpengineer.jfrog.io/
-buildscript {
-    repositories {
-        maven {
-            url "https://gcpengineer.jfrog.io:8082/artifactory/jcenter"
-		
-        }
-    }
-}
 
 
 repositories {

@@ -66,7 +66,8 @@ jobs:
 
       - name: Build with Gradle
         run: |-
-          ./gradlew clean build -x test
+          gradle build artifactoryPublish
+#          ./gradlew clean build -x test
 
       - name: Upload Jar
         uses: actions/upload-artifact@v2

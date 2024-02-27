@@ -1,18 +1,13 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://gcpengineer.jfrog.io:8082/artifactory/jcenter"
-		
-        }
-    }
-}
-
 plugins {
 	id 'org.springframework.boot' version '2.7.2'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
 	id 'com.google.cloud.tools.jib' version '3.3.1'
+	id 'com.jfrog.artifactory'
+	id 'maven-publish'
+	id "com.jfrog.artifactory" version "5.+"
 }
+
 
 group = 'vn.cloud'
 version = '0.0.1-SNAPSHOT'
@@ -23,7 +18,7 @@ configurations {
 		extendsFrom annotationProcessor
 	}
 }
-https://gcpengineer.jfrog.io/
+
 
 
 repositories {
@@ -39,6 +34,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'junit:junit:4.7'
 }
 
 tasks.named('test') {

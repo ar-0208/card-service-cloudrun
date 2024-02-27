@@ -64,6 +64,16 @@ jobs:
 #         with:
 #           github_token_access: atlantean-petal-309613/GITHUB_TOKEN_PAT
 
+      - name: Restore gradle.properties
+        env:
+          GRADLE_PROPERTIES: ${{ secrets.GRADLE_PROPERTIES }}
+        shell: bash
+        run: |
+          mkdir -p ~/.gradle/
+          echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
+          echo ${GRADLE_PROPERTIES} > ~/.gradle/gradle.properties
+
+      
       - name: Build with Gradle
         run: |-
           gradle build artifactoryPublish

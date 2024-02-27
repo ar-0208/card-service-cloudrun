@@ -23,6 +23,11 @@ artifactory {
             maven = true
             
         }
+        defaults {
+            publications('mavenJava')
+            publishArtifacts = true
+            publishPom = true
+        }
     }
     resolve {
         repository {
